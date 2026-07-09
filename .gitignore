@@ -6,7 +6,7 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-data/
-reports/
+/data/
+/reports/
 *.parquet
 *.sqlite
