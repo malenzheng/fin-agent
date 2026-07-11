@@ -1,221 +1,220 @@
-# FinPulse Agent Portfolio Design
+# FinPulse Agent 作品集设计
 
-## Goal
+## 目标
 
-Build the existing `financial-agent` project into a public interview portfolio for a Financial LLM Agent role.
+把现有的 `financial-agent` 项目升级成一个面向「金融 x LLM Agent」岗位的公开求职作品集。
 
-The target positioning is:
+项目定位：
 
-> FinPulse Agent is a market information and investment research assistant that combines deterministic financial data processing, LLM Agent workflows, and benchmark-style evaluation. It is not an auto-trading system.
+> FinPulse Agent 是一个面向市场信息处理与投研辅助的金融 LLM Agent。它结合确定性的金融数据处理、Agent 工作流和可复现的评测体系，用来展示真实金融研究场景中的工程落地能力。它不是自动交易系统，也不提供投资建议。
 
-The project should show that the candidate can connect financial industry backend experience with real LLM Agent product work:
+这个项目要证明候选人能把金融行业后台开发经验迁移到 LLM Agent 产品中：
 
-- reliable data pipelines,
-- evidence-grounded research workflows,
-- quantitative candidate generation,
-- agent orchestration,
-- benchmark and evaluation design,
-- maintainable public repository practices.
+- 能做可靠的数据管道；
+- 能设计证据可追溯的投研工作流；
+- 能用确定性规则生成候选池；
+- 能编排 Agent 进行分析和报告生成；
+- 能设计 Benchmark 和评测闭环；
+- 能维护一个适合公开展示的工程仓库。
 
-## Target Role Fit
+## 岗位匹配
 
-The project is designed for roles like "Finance x LLM Agent" where the team needs systems that participate in real financial research, information processing, and decision-support workflows.
+这个项目针对的是「Finance x LLM Agent」一类岗位。它们通常不是只要聊天机器人，也不是单纯量化策略，而是希望 Agent 真正参与金融研究、信息处理、决策辅助和评测迭代。
 
-The repo should demonstrate four capabilities:
+仓库需要展示四类能力：
 
-1. Financial domain grounding: market data, news, announcements, fundamentals, themes, and risk notes.
-2. Backend engineering: CLI, scheduled jobs, cache-first storage, typed boundaries, tests, and graceful degradation.
-3. Agent workflow design: planning, tool use, retrieval, evidence synthesis, structured reports, and fallback behavior.
-4. Evaluation and iteration: task cases, scoring rubrics, model/prompt comparisons, failure-case collection, and future SFT/DPO data construction.
+1. 金融场景理解：行情、新闻、公告、财报、主题、风险提示。
+2. 后端工程能力：CLI、定时任务、缓存优先、类型边界、测试、失败降级。
+3. Agent 工作流设计：规划、工具调用、检索、证据合成、结构化报告、兜底逻辑。
+4. 评测与迭代能力：测试 case、评分 Rubric、模型/Prompt 对比、失败样本收集、未来 SFT/DPO 数据构造。
 
-## Product Scope
+## 产品范围
 
-The project evolves from the current weekly breakout screener into a broader financial research agent.
+项目从当前的「周线突破筛选器」演进成更完整的金融研究 Agent。
 
-The first public version should support:
+第一个公开版本应支持：
 
-- generating a quantitative candidate pool from cached market data,
-- enriching top candidates with market context,
-- producing a Chinese research report with evidence and risk notes,
-- running offline smoke demos without secrets or paid data access,
-- documenting the learning path, roadmap, architecture, and interview positioning.
+- 从缓存行情数据中生成量化候选池；
+- 给候选标的补充市场信息和风险上下文；
+- 生成中文投研辅助报告，包含证据、逻辑和风险提示；
+- 在没有密钥、没有付费数据的情况下运行离线 smoke demo；
+- 文档化学习路线、项目路线、架构设计和面试讲述方式。
 
-The project should avoid promising live trading performance. It should be presented as a research assistant, market-intelligence workflow, and evaluation platform.
+项目不承诺交易收益，也不包装成自动炒股工具。它应该被描述为金融研究助手、市场信息处理工作流和 Agent 评测平台。
 
-## Learning Roadmap
+## 学习路线
 
-The learning plan is intentionally tied to repo milestones so that study produces visible commits.
+学习路线要和仓库里程碑绑定。每学一块，都要有对应的代码、文档或评测产出。
 
-### Stage 1: LLM Agent Basics
+### 阶段 1：LLM Agent 基础
 
-Focus:
+重点：
 
-- tool calling,
-- structured JSON output,
-- workflow orchestration,
-- state machines,
-- retry and fallback behavior,
-- prompt and context engineering.
+- Tool Calling；
+- 结构化 JSON 输出；
+- Workflow 编排；
+- 状态机；
+- 失败重试和兜底；
+- Prompt / Context Engineering。
 
-Repo outcome:
+仓库产出：
 
-- document the agent workflow design,
-- add a minimal tool registry interface,
-- keep an offline deterministic review path.
+- 写清楚 Agent 工作流设计；
+- 增加最小工具注册接口；
+- 保留离线、确定性的 review 路径。
 
-### Stage 2: Financial Data Engineering
+### 阶段 2：金融数据工程
 
-Focus:
+重点：
 
-- OHLCV data,
-- universe membership,
-- news and announcements,
-- fundamentals,
-- entity mapping from text to symbols,
-- local cache and data freshness tracking.
+- OHLCV 行情数据；
+- 股票池和指数成分；
+- 新闻、公告、财报；
+- 文本中的公司/股票实体映射；
+- 本地缓存和数据新鲜度追踪。
 
-Repo outcome:
+仓库产出：
 
-- keep the current cache-first market-data pipeline,
-- add fixture-backed information-source interfaces,
-- expose freshness and source status in reports.
+- 保留现有缓存优先的行情数据管道；
+- 增加基于 fixture 的信息源接口；
+- 在报告里展示数据新鲜度和信息源状态。
 
-### Stage 3: Research Agent Workflow
+### 阶段 3：投研 Agent 工作流
 
-Focus:
+重点：
 
-- market hotspot discovery,
-- theme explanation,
-- related-stock mapping,
-- individual-stock research,
-- catalyst and risk extraction,
-- evidence-grounded report writing.
+- 市场热点发现；
+- 主题逻辑解释；
+- 相关个股映射；
+- 个股深度研究；
+- 催化因素和风险提取；
+- 基于证据的报告生成。
 
-Repo outcome:
+仓库产出：
 
-- implement a staged research workflow:
-  - collect context,
-  - build candidate pool,
-  - retrieve evidence,
-  - synthesize research notes,
-  - render report artifacts.
+- 实现分阶段研究流程：
+  - 收集上下文；
+  - 构建候选池；
+  - 检索证据；
+  - 合成研究结论；
+  - 输出报告和结构化产物。
 
-### Stage 4: Agent Evaluation
+### 阶段 4：Agent 评测
 
-Focus:
+重点：
 
-- task completion,
-- factuality,
-- evidence citation,
-- financial reasoning,
-- risk identification,
-- hallucination detection,
-- LLM-as-judge with human-reviewable rubrics.
+- 任务完成度；
+- 事实准确性；
+- 证据引用；
+- 金融推理；
+- 风险识别；
+- 幻觉检测；
+- LLM-as-Judge 与人工可复核 Rubric。
 
-Repo outcome:
+仓库产出：
 
-- add a benchmark folder with 30-50 cases,
-- compare baseline prompt, RAG workflow, and agent workflow,
-- write a reproducible evaluation report.
+- 增加 benchmark 目录，准备 30-50 个测试 case；
+- 对比 baseline prompt、RAG workflow 和 agent workflow；
+- 写出可复现的评测报告。
 
-### Stage 5: Post-Training Awareness
+### 阶段 5：后训练意识
 
-Focus:
+重点：
 
-- SFT,
-- DPO,
-- preference data,
-- failure-case mining,
-- supervised datasets from research tasks,
-- safety and compliance examples.
+- SFT；
+- DPO；
+- 偏好数据；
+- 从失败案例挖数据；
+- 从投研任务构造监督数据；
+- 安全和合规样本。
 
-Repo outcome:
+仓库产出：
 
-- create sample training-data formats from benchmark failures,
-- document how future SFT/DPO would be done,
-- avoid claiming trained models unless actual training is run and verified.
+- 根据 benchmark 失败案例生成样例训练数据格式；
+- 文档化未来如何做 SFT/DPO；
+- 没有真实训练前，不声称模型已经训练完成。
 
-## Project Roadmap
+## 项目路线
 
-### Milestone 0: Public Repo Readiness
+### 里程碑 0：公开仓库门面
 
-Goal: make the project understandable to a recruiter or interviewer in five minutes.
+目标：让面试官 5 分钟内知道这个项目在做什么、为什么贴岗位、怎么运行。
 
-Deliverables:
+交付物：
 
-- `README.md` with positioning, screenshots/report snippets, setup, commands, and disclaimer.
-- `docs/learning-roadmap.md`.
-- `docs/project-roadmap.md`.
-- `docs/architecture.md`.
-- `docs/interview-positioning.md`.
-- clean `.env.example` and no committed secrets.
-- verified test command and smoke command.
+- `README.md`：项目定位、演示片段、安装方式、命令、免责声明；
+- `docs/learning-roadmap.md`：学习路线；
+- `docs/project-roadmap.md`：项目路线；
+- `docs/architecture.md`：架构说明；
+- `docs/interview-positioning.md`：面试讲述方式；
+- 干净的 `.env.example`，不提交任何密钥；
+- 可复现的测试命令和 smoke 命令。
 
-### Milestone 1: Quantitative Candidate Engine
+### 里程碑 1：量化候选池引擎
 
-Goal: preserve and improve the current weekly breakout screener as the deterministic candidate generator.
+目标：把当前周线突破筛选器整理成确定性的候选池生成器。
 
-Deliverables:
+交付物：
 
-- candidate scoring documentation,
-- sample report committed under a public-safe demo path,
-- richer score explanation,
-- freshness and skipped-symbol diagnostics,
-- tests for scoring and report rendering.
+- 候选评分逻辑文档；
+- 可以公开展示的示例报告；
+- 更清楚的评分解释；
+- 数据新鲜度和跳过标的诊断；
+- 评分和报告渲染测试。
 
-### Milestone 2: Market Information Pipeline
+### 里程碑 2：市场信息管道
 
-Goal: add an extensible source layer for news, announcements, fundamentals, and theme notes.
+目标：增加新闻、公告、财报、主题信息的可扩展信息源层。
 
-Deliverables:
+交付物：
 
-- source provider interfaces,
-- fixture provider for public offline demos,
-- optional real providers through environment configuration,
-- source metadata in every report section.
+- 信息源 provider 接口；
+- 公开 demo 可用的 fixture provider；
+- 通过环境变量启用的真实 provider；
+- 报告中的信息源元数据。
 
-### Milestone 3: Financial Research Agent
+### 里程碑 3：金融研究 Agent
 
-Goal: turn the system from a screener into a research workflow.
+目标：让系统从筛选器升级为投研辅助工作流。
 
-Deliverables:
+交付物：
 
-- hotspot discovery workflow,
-- theme-to-symbol mapping,
-- individual-stock research workflow,
-- catalyst and risk extraction,
-- evidence citations,
-- structured JSON output plus Markdown report.
+- 热点发现工作流；
+- 主题到个股映射；
+- 个股研究工作流；
+- 催化因素和风险提取；
+- 证据引用；
+- 结构化 JSON 输出和 Markdown 报告。
 
-### Milestone 4: Benchmark And Evaluation
+### 里程碑 4：Benchmark 与评测
 
-Goal: show the ability to evaluate financial agents beyond returns.
+目标：展示不只看收益率的金融 Agent 评测能力。
 
-Deliverables:
+交付物：
 
-- benchmark case schema,
-- rubric definitions,
-- deterministic checks for required fields and citations,
-- optional LLM-as-judge scoring,
-- comparison report across workflow versions.
+- benchmark case schema；
+- Rubric 定义；
+- 必填字段和证据引用的确定性检查；
+- 可选 LLM-as-Judge 评分；
+- 不同 workflow 版本的对比报告。
 
-### Milestone 5: Interview Package
+### 里程碑 5：面试材料
 
-Goal: make the repo easy to discuss in interviews.
+目标：让项目可以自然地用于面试讲述。
 
-Deliverables:
+交付物：
 
-- one-page architecture narrative,
-- technical deep-dive notes,
-- interview speaking script,
-- known limitations,
-- future training and productization plan.
+- 一页架构讲述；
+- 技术深挖笔记；
+- 面试自我介绍脚本；
+- 已知限制；
+- 未来训练和产品化计划。
 
-## Architecture
+## 架构设计
 
-The project remains a Python CLI-first backend package.
+项目保持 Python CLI 优先，偏后端工程项目，而不是 Notebook demo。
 
-Recommended module shape:
+推荐模块结构：
 
 ```text
 src/financial_agent/
@@ -233,123 +232,123 @@ src/financial_agent/
   cli.py
 ```
 
-Key boundaries:
+关键边界：
 
-- `sources`: obtains raw or fixture-backed market information.
-- `storage`: owns local cache paths and persistence.
-- `features`: computes deterministic financial features.
-- `scoring`: builds the quantitative candidate pool.
-- `retrieval`: prepares evidence for agent synthesis.
-- `agent`: orchestrates research workflows and fallback reviews.
-- `evaluation`: runs benchmark tasks and rubric scoring.
-- `reporting`: renders Markdown, CSV, and JSON artifacts.
+- `sources`：获取真实或 fixture 形式的市场信息；
+- `storage`：负责本地缓存路径和持久化；
+- `features`：计算确定性的金融特征；
+- `scoring`：生成量化候选池；
+- `retrieval`：为 Agent 合成准备证据；
+- `agent`：编排研究工作流和兜底 review；
+- `evaluation`：运行 benchmark case 和 Rubric 评分；
+- `reporting`：渲染 Markdown、CSV、JSON 产物。
 
-## Data Flow
+## 数据流
 
-The main research flow:
+主研究流程：
 
-1. Load settings and validate secret hygiene.
-2. Refresh or reuse universe data.
-3. Update or load cached OHLCV data.
-4. Build weekly features and quantitative scores.
-5. Select a shortlist.
-6. Retrieve fixture or real information for shortlisted symbols and themes.
-7. Run deterministic or LLM-backed research review.
-8. Render Markdown and structured artifacts.
-9. Save run metadata, data freshness, skipped symbols, and source status.
+1. 加载配置并检查密钥安全；
+2. 刷新或复用股票池；
+3. 更新或读取缓存 OHLCV 行情；
+4. 构建周线特征和量化评分；
+5. 选出候选池；
+6. 为候选标的和主题检索 fixture 或真实信息；
+7. 运行确定性或 LLM 驱动的研究 review；
+8. 输出 Markdown 和结构化产物；
+9. 保存运行元数据、数据新鲜度、跳过标的和信息源状态。
 
-The benchmark flow:
+评测流程：
 
-1. Load benchmark cases.
-2. Run the selected workflow variant.
-3. Validate schema and citation requirements.
-4. Score with deterministic checks.
-5. Optionally score with an LLM judge.
-6. Write an evaluation summary that can be reviewed by humans.
+1. 加载 benchmark cases；
+2. 运行指定 workflow 版本；
+3. 检查输出 schema 和证据引用；
+4. 进行确定性评分；
+5. 可选地使用 LLM-as-Judge；
+6. 写出人工可复核的评测总结。
 
-## Public Repository Policy
+## 公开仓库策略
 
-The repository should be public-safe by default.
+仓库默认要做到公开安全。
 
-Rules:
+规则：
 
-- Never commit `.env`, API keys, OAuth registration tokens, account identifiers, private research notes, or paid data dumps.
-- Keep generated local `/data/` and `/reports/` ignored.
-- Commit only small fixture data and public-safe sample outputs.
-- Add a clear disclaimer that this is a research and engineering portfolio, not investment advice.
-- Keep issues and milestones visible so the repo shows active maintenance.
-- Prefer small, meaningful commits with test evidence in PR or commit notes.
+- 不提交 `.env`、API key、OAuth registration token、账户标识、私人研究笔记或付费数据；
+- 本地生成的 `/data/` 和 `/reports/` 保持 ignore；
+- 只提交少量 fixture 数据和公开安全的示例输出；
+- 明确写出免责声明：项目是研究和工程作品集，不构成投资建议；
+- 维护公开 issue 和 milestone，让仓库看起来是持续演进的项目；
+- commit 要小而清晰，PR 或 commit notes 里保留测试证据。
 
-## GitHub Setup Plan
+## GitHub 设置计划
 
-Because the local environment currently has no `gh` CLI and no direct GitHub repository creation tool, the public repo setup will use this flow:
+当前环境没有 `gh` CLI，也没有可直接创建 GitHub 仓库的工具，所以公开仓库使用这个流程：
 
-1. User creates an empty public GitHub repository in the browser.
-2. User provides the repo URL.
-3. Codex sets `origin` locally.
-4. Codex pushes the current branch.
-5. Codex helps choose the default branch strategy:
-   - either push current work to `main`,
-   - or push `codex/daily-weekly-breakout-agent` and open a PR if GitHub tools permit.
+1. 用户在 GitHub 网页创建一个空的 public repository；
+2. 用户把 repo URL 发给 Codex；
+3. Codex 在本地配置 `origin`；
+4. Codex 推送当前分支；
+5. Codex 协助选择默认分支策略：
+   - 要么直接推到 `main`；
+   - 要么推送 `codex/daily-weekly-breakout-agent`，如果工具允许再开 PR。
 
-The repo URL must be real. Codex must not invent one.
+repo URL 必须是真实地址，不能由 Codex 编造。
 
-## Testing Strategy
+## 测试策略
 
-Every milestone should preserve the current smoke and unit test path.
+每个里程碑都必须保持现有单测和 smoke 流程可用。
 
-Baseline verification:
+基础验证命令：
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -v
 .\.venv\Scripts\financial-agent.exe screen smoke --report-dir reports
 ```
 
-Additional tests should be added for:
+后续增加测试：
 
-- source provider fallbacks,
-- evidence citation fields,
-- agent workflow schema,
-- benchmark case loading,
-- deterministic rubric scoring,
-- report sections required for interviews.
+- 信息源 provider 兜底；
+- 证据引用字段；
+- Agent workflow schema；
+- benchmark case 加载；
+- Rubric 确定性评分；
+- 面试展示报告的必要章节。
 
-## Error Handling
+## 错误处理
 
-The system should degrade gracefully:
+系统要优雅降级：
 
-- If real market data is unavailable, use fixture demos and mark the report as demo data.
-- If a source provider fails, keep quantitative results and record the missing source.
-- If LLM review fails, render deterministic fallback analysis.
-- If benchmark judge scoring fails, keep deterministic scores.
-- If LongPort or other data quotas are hit, stop new requests and report the blocker.
+- 如果真实行情不可用，使用 fixture demo，并在报告中标记 demo 数据；
+- 如果某个信息源失败，保留量化结果，并记录缺失信息源；
+- 如果 LLM review 失败，渲染确定性兜底分析；
+- 如果 benchmark judge 失败，保留确定性评分；
+- 如果 LongPort 或其他数据源触发额度限制，停止新的请求并报告具体 blocker。
 
-## Non-Goals
+## 非目标
 
-This project will not:
+本项目不会：
 
-- place trades automatically,
-- claim production investment performance,
-- commit private or paid datasets,
-- require live credentials for the public demo,
-- train large models before the data and evaluation loop are ready,
-- present model outputs as financial advice.
+- 自动下单交易；
+- 声称有生产级投资收益；
+- 提交私人或付费数据集；
+- 要求公开 demo 必须有实时密钥；
+- 在数据和评测闭环成熟前训练大模型；
+- 把模型输出包装成投资建议。
 
-## Acceptance Criteria
+## 验收标准
 
-The next phase is complete when:
+下一阶段完成时，应满足：
 
-- the design and learning roadmap are committed,
-- the README explains the role fit and demo workflow,
-- the existing tests pass,
-- the smoke report still runs locally,
-- the repo is ready to push to a user-created public GitHub repository,
-- the next implementation plan is specific enough to execute task by task.
+- 中文设计文档和学习路线已经提交；
+- README 能说明岗位匹配和 demo 流程；
+- 现有测试通过；
+- smoke report 可以本地运行；
+- 仓库准备好推送到用户创建的 public GitHub repo；
+- 下一份实施计划具体到可以逐项执行。
 
-## Spec Self-Review
+## 自检
 
-- No placeholder sections remain.
-- The public repo setup does not assume unavailable GitHub creation tooling.
-- The scope is focused on a portfolio-grade financial research agent, not a full trading platform.
-- The design preserves the existing weekly breakout screener as a candidate engine.
-- Secret hygiene, disclaimers, tests, and fallback behavior are explicit.
+- 没有保留未完成章节；
+- 公开仓库设置没有假设不可用的 GitHub 创建工具；
+- 范围聚焦在作品集级金融研究 Agent，不扩张成完整交易平台；
+- 保留现有周线突破筛选器作为候选池引擎；
+- 密钥安全、免责声明、测试和兜底行为都已经明确。
