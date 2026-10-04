@@ -1,7 +1,7 @@
 [project]
 name = "financial-agent"
 version = "0.1.0"
-description = "Daily after-close weekly breakout screening agent"
+description = "Financial market research workflows and evidence-based evaluation"
 requires-python = ">=3.11"
 dependencies = [
   "pandas>=2.2",
@@ -21,3 +21,10 @@ financial-agent = "financial_agent.cli:app"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"financial_agent.sources" = ["fixtures/*.json"]

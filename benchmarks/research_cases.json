@@ -1,0 +1,32 @@
+[
+  {
+    "id": "chip-full-context",
+    "task": {"symbol": "DEMO.CHIP", "as_of": "2026-10-02T12:00:00+08:00", "max_age_days": 7},
+    "expected_evidence_ids": ["chip-order", "chip-risk", "chip-context"]
+  },
+  {
+    "id": "auto-separate-symbol",
+    "task": {"symbol": "DEMO.AUTO", "as_of": "2026-10-02T12:00:00+08:00", "max_age_days": 7},
+    "expected_evidence_ids": ["auto-delivery", "auto-risk"]
+  },
+  {
+    "id": "unknown-symbol-abstains",
+    "task": {"symbol": "UNKNOWN", "as_of": "2026-10-02T12:00:00+08:00", "max_age_days": 7},
+    "expected_evidence_ids": []
+  },
+  {
+    "id": "publication-is-not-availability",
+    "task": {"symbol": "DEMO.CHIP", "as_of": "2026-10-01T12:00:00+08:00", "max_age_days": 7},
+    "expected_evidence_ids": ["chip-order"]
+  },
+  {
+    "id": "freshness-window",
+    "task": {"symbol": "DEMO.CHIP", "as_of": "2026-10-02T12:00:00+08:00", "max_age_days": 1},
+    "expected_evidence_ids": ["chip-context"]
+  },
+  {
+    "id": "stale-only-abstains",
+    "task": {"symbol": "DEMO.CHIP", "as_of": "2026-10-10T12:00:00+08:00", "max_age_days": 1},
+    "expected_evidence_ids": []
+  }
+]

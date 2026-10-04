@@ -1,0 +1,44 @@
+[
+  {
+    "id": "chip-order", "symbol": "DEMO.CHIP", "kind": "catalyst", "source_type": "announcement",
+    "title": "合成公告：示例芯片新增订单", "text": "示例芯片公司新增订单 120 万元；订单不等同于已确认收入。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/chip-order",
+    "published_at": "2026-10-01T09:00:00+08:00", "available_at": "2026-10-01T10:00:00+08:00"
+  },
+  {
+    "id": "chip-risk", "symbol": "DEMO.CHIP", "kind": "risk", "source_type": "filing",
+    "title": "合成财报：客户集中风险", "text": "示例芯片公司前两大客户收入占比为 65%，存在客户集中风险。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/chip-risk",
+    "published_at": "2026-10-01T11:00:00+08:00", "available_at": "2026-10-01T14:00:00+08:00"
+  },
+  {
+    "id": "chip-context", "symbol": "DEMO.CHIP", "kind": "context", "source_type": "news",
+    "title": "合成新闻：行业背景", "text": "合成行业调查显示交付周期延长；该信息不能直接证明示例芯片公司的利润增长。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/chip-context",
+    "published_at": "2026-10-02T08:00:00+08:00", "available_at": "2026-10-02T08:30:00+08:00"
+  },
+  {
+    "id": "chip-future", "symbol": "DEMO.CHIP", "kind": "catalyst", "source_type": "announcement",
+    "title": "合成公告：未来信息隔离样例", "text": "示例芯片公司新增产线开始试运行，实际利用率尚待观察。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/chip-future",
+    "published_at": "2026-10-03T09:00:00+08:00", "available_at": "2026-10-03T10:00:00+08:00"
+  },
+  {
+    "id": "chip-old", "symbol": "DEMO.CHIP", "kind": "context", "source_type": "news",
+    "title": "合成新闻：陈旧信息样例", "text": "示例芯片公司上月参加行业展会。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/chip-old",
+    "published_at": "2026-09-01T09:00:00+08:00", "available_at": "2026-09-01T10:00:00+08:00"
+  },
+  {
+    "id": "auto-delivery", "symbol": "DEMO.AUTO", "kind": "catalyst", "source_type": "announcement",
+    "title": "合成公告：示例汽车交付数据", "text": "示例汽车公司本月交付 1000 台；该样例未提供去年同期数据，不能计算同比。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/auto-delivery",
+    "published_at": "2026-10-01T09:00:00+08:00", "available_at": "2026-10-01T10:00:00+08:00"
+  },
+  {
+    "id": "auto-risk", "symbol": "DEMO.AUTO", "kind": "risk", "source_type": "filing",
+    "title": "合成财报：现金流风险", "text": "示例汽车公司经营活动现金流为负；本样例不包含可用于判断偿债能力的完整数据。",
+    "publisher": "FinPulse 合成数据集", "uri": "fixture://market/auto-risk",
+    "published_at": "2026-10-01T11:00:00+08:00", "available_at": "2026-10-01T12:00:00+08:00"
+  }
+]
