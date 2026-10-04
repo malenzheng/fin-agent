@@ -10,6 +10,7 @@ from financial_agent.agent.review import review_candidates
 from financial_agent.agent.research import ResearchBrief, build_research_brief
 from financial_agent.data.sample_ohlcv import make_sample_ohlcv
 from financial_agent.evaluation.research import BenchmarkResult, evaluate_brief, load_cases, run_benchmark
+from financial_agent.longport.commands import auth_app, market_app
 from financial_agent.reporting.markdown import render_daily_report
 from financial_agent.reporting.research import render_benchmark_report, render_research_brief
 from financial_agent.scoring.weekly_breakout import score_weekly_breakout
@@ -22,6 +23,8 @@ research_app = typer.Typer(help="市场信息与投研辅助")
 evaluation_app = typer.Typer(help="可复现的研究工作流评测")
 app.add_typer(research_app, name="research")
 app.add_typer(evaluation_app, name="evaluate")
+app.add_typer(auth_app, name="auth")
+app.add_typer(market_app, name="market")
 
 
 @app.callback()

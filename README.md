@@ -4,6 +4,8 @@
 
 当前已实现无需密钥的离线研究与评测基线。研究工作流使用合成资料和人工分类，按规则摘录原文，**尚未接入 LLM、实时资讯或 RL 训练**。原有量价筛选器作为独立模块保留。
 
+另提供可选的长桥真实行情入口：OAuth/API Key 认证、只读连接验证、美股日 K 查询与缓存。研究 demo 和 screen smoke 仍使用合成数据，不会自动切换为真实行情。
+
 ## 五分钟运行
 
 需要 Python 3.11+，在仓库根目录运行。首次安装需要访问 Python 包源，下面的演示不访问外部信息源。
@@ -55,6 +57,31 @@ Linux/macOS 对应执行 `.venv/bin/python` 和 `.venv/bin/financial-agent`。
 ```
 
 命令会覆盖目标目录下的同名报告；需要保留多次实验时，使用不同的 `--report-dir`。评测全部通过返回 0；评分未通过返回 1 并保留报告；输入或文件错误返回 2。`--as-of` 必须包含时区。未知标的正常输出“信息不足”。
+
+## 长桥真实行情（可选）
+
+参照已有美股选股项目的 `longbridge.openapi` 实现。保留 `longport` 安装 extra 和模块名称，实际 SDK 使用 `longbridge`；官方已说明 SDK 的包名迁移，见 [SDK 文档](https://open.longbridge.com/sdk)。
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[dev,longport]"
+
+# 先设置本机已有配置文件路径，不需要把凭证复制到本仓库
+$longbridgeEnv = "D:\local-config\longbridge.env"
+.\.venv\Scripts\financial-agent.exe auth status --env-file $longbridgeEnv
+.\.venv\Scripts\financial-agent.exe auth verify --env-file $longbridgeEnv --symbol AAPL.US
+
+# 仅在提示需要授权时使用，浏览器授权由使用者完成
+.\.venv\Scripts\financial-agent.exe auth oauth-login --env-file $longbridgeEnv
+
+# 先用一个标的、较小日期范围验证
+.\.venv\Scripts\financial-agent.exe market daily --symbol AAPL.US --start 2026-09-28 --end 2026-09-30 --env-file $longbridgeEnv
+```
+
+`auth status` 只检查配置，不能证明认证成功或行情权限；`auth verify` 请求静态证券信息，日 K 权限仍需实际查询验证。默认 verify 不等待新授权，OAuth token 由 SDK 管理。
+
+同一标的和完全相同的日期范围重复运行会命中本地缓存；`--refresh` 重新请求。缓存存放在 `data/longbridge/no-adjust/`，包含 Parquet 与来源元数据，不提交到 Git。当前单次范围最多 366 个日历日，使用不复权价格；缓存不表示每个日历日都有交易数据，也不自动刷新历史修订。
+
+详细说明与迁移边界见 [长桥接入](docs/longbridge-integration.md)。
 
 ## 怎么判断输出可靠
 

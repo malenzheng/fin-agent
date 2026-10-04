@@ -13,7 +13,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.2", "pytest-cov>=5.0"]
-longport = ["longport>=3.0"]
+longport = ["longbridge==4.5.0"]
 
 [project.scripts]
 financial-agent = "financial_agent.cli:app"
